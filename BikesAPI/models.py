@@ -4,10 +4,10 @@ from django.db import models
 
 # Create your models here.
 class Location(models.Model):
-    city: models.CharField(max_length=50)
-    country: models.CharField(max_length=50)
-    latitude: models.FloatField()
-    longitude: models.FloatField()
+    city = models.CharField(max_length=50, null=True)
+    country = models.CharField(max_length=50, null=True)
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
 
 
 class Network(models.Model):
@@ -39,7 +39,7 @@ class Extra(models.Model):
     normal_bikes = models.IntegerField()
     payment = models.JSONField()
     payment_terminal = models.BooleanField()
-    post_code = models.CharField(max_length=10)
+    post_code = models.CharField(max_length=200)
     renting = models.IntegerField()
     returning = models.IntegerField()
     slots = models.IntegerField()
