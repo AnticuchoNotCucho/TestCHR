@@ -17,8 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 import BikesAPI.views
+from ServiceEnvironmentAPI.scrapping import get_data_scrapped
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('BikesAPI.urls'))
+    path('', include('BikesAPI.urls')),
+    path('', include('ServiceEnvironmentAPI.urls'))
 ]
+

@@ -8,6 +8,7 @@ from BikesAPI.models import Extra, Station, Network, Location
 # Create your views here.
 
 def get_data_bikes(request):
+    print('Obteniendo datos...')
     # Obtener los datos de la API usando requests o alguna librería similar
     response = requests.get('http://api.citybik.es/v2/networks/bikesantiago')
     data = response.json()
@@ -32,7 +33,6 @@ def get_data_bikes(request):
             post_code = station_data['extra'].get('post_code', None)
             if post_code is None:
                 post_code = 'N/A'
-            print(post_code)
             extra_instance = Extra.objects.create(
                 address=station_data['extra']['address'],
                 altitude=station_data['extra']['altitude'],
